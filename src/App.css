@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.country-card {
+  max-width: 300px;
+  border: 1px solid gray;
+  margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* opcional: separa los elementos */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.country-card .country-flag>img {
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.country-flag>img {
+  aspect-ratio: 2 / 3;
+  height: 150px;
+}
+
+.country-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.country-summary {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.country-details-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.country-info-container {
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.country-wrapper-link {
+  text-decoration: none;
+  color: black;
+}
+
+.country-details-container .details {
+  display: flex;
+  gap: 20px;
+}
+
+.country-details-container .details .details-column {
+  width: 50%;
 }
