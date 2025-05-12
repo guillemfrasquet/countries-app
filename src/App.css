@@ -1,22 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+body {
+  background: hsl(0, 0%, 99%);
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+
+}
+
 .country-card {
-  max-width: 300px;
-  border: 1px solid gray;
+  /*width: 300px;*/
+  width: 100%;
   margin: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  background-color: white;
+  transition: all 0.2s ease; /* Transición suave */
+}
+
+.country-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+}
+
+.country-card:active {
+  transform: translateY(0); /* Vuelve a la posición original al hacer clic */
 }
 
 .countries-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem; /* opcional: separa los elementos */
+  gap: 5rem; 
+  justify-items: center; /* Centra las tarjetas dentro de sus celdas */
+  justify-content: space-between;
 }
 
-.country-card .country-flag>img {
+.country-flag {
   width: 100%;
+  position: relative; /* Necesario para controlar la altura proporcional */
+  padding-top: 66.66%; /* Esto da una proporción 2:3 (2/3 = 66.66%) */
+  overflow: hidden; /* Hace que la imagen no se desborde fuera del contenedor */
 }
 
 .country-flag>img {
-  aspect-ratio: 2 / 3;
-  height: 150px;
+  position: absolute; /* Hace que la imagen se posicione dentro del contenedor */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Asegura que la imagen cubra completamente el contenedor */
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .country-name {
@@ -32,10 +65,20 @@
 .country-details-container {
   display: flex;
   width: 100%;
+  gap: 5%;
+}
+
+.country-image-container {
+  width: 40%;
 }
 
 .country-info-container {
-  width: 100%;
+  width: 60%;
+  padding-top: 30px;
+}
+
+.country-info-container .label {
+  font-weight: bold;
 }
 
 .country-wrapper-link {
@@ -51,3 +94,156 @@
 .country-details-container .details .details-column {
   width: 50%;
 }
+
+.container {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-name {
+  all:unset;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  background-color: white;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px 16px;
+  padding-left: 35px;
+  height: 35px;
+  width: 300px;
+  box-sizing: border-box;
+  transition: all 0.2s ease; /* Transición suave */
+}
+
+.input-name:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.input-name:focus {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.select-region {
+  all:unset;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  background-color: white;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  padding-right: 35px;
+  height: 20px;
+  width: 200px;
+  transition: all 0.2s ease;
+}
+
+.select-region:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.select-region:focus {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 6px 20px -6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.back-button {
+  all:unset;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  background-color: white;
+  height: 20px;
+  width: 80px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.country-info-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country-info-container ul li {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.border-countries {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.border-country-tag {
+  text-decoration: none;
+}
+
+.border-country-tag {
+  all:unset;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  background-color: white;
+  color: black;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.border-country-tag:hover { 
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.back-button:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+@media (max-width: 1500px) {
+  .countries-grid {
+    gap: 1rem; 
+  }
+}
+
+@media (max-width: 1000px) {
+  .countries-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Máximo de 4 columnas */
+  }
+  .country-card {
+    max-width: 95%;
+  }
+}
+
+

@@ -44,18 +44,19 @@ const CountriesList = () => {
         }, [region, nameSearch])
 
     return (
-        <>
-            <h2>CountriesList</h2>
-            <select value={region} onChange={filterByRegion}>
-                <option value="">Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="America">America</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>
-
-            <input type="text" placeholder="Search for a country..." onChange={filterByCountryName}></input>
+        <div className='container list-container'>
+            <div className='filters'>
+                <input type="text" placeholder="Search for a country..." onChange={filterByCountryName} className='input-name'></input>
+                <select value={region} onChange={filterByRegion} className='select-region'>
+                    <option value="">Filter by Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="America">America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+            
 
             <div className='countries-grid'>
                 {countries.map(country => (
@@ -71,7 +72,7 @@ const CountriesList = () => {
                 ))}
             </div>
             
-        </>      
+        </div>      
     ) ;
   };
   
