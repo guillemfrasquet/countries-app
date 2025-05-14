@@ -3,11 +3,31 @@ import NavBar from './components/NavBar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    return storedTheme ? storedTheme : "light";
+  });
+
+  function toggleTheme() {
+    if(theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+
+  }
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <Routes>
-      <Route path="/" element={<NavBar />}>
+      <Route path="/" element={<NavBar toggleTheme={toggleTheme} theme={theme} />}>
         <Route index element={<CountriesList />} />
         <Route path="country/:id" element={<CountryDetails />} />
       </Route>

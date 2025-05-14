@@ -30,7 +30,7 @@ const CountryDetails = () => {
       .catch(err => console.error('Failed loading details', err));
   }, [id]);
 
-  if (!details) return <p>Loading...</p>;
+  if (!details) return <div className='loading'><div className="spinner"></div></div>;
 
   return (
     <div className='container'>
@@ -44,7 +44,7 @@ const CountryDetails = () => {
           <div className='details'>
             <div className='details-column'>
               <p><span className='label'>Native name:</span> {Object.values(details.name.nativeName)[0].common}</p>
-              <p><span className='label'>Population:</span> {details.population}</p>
+              <p><span className='label'>Population:</span> {details.population.toLocaleString('en-EN')}</p>
               <p><span className='label'>Region:</span> {details.region}</p>
               <p><span className='label'>Sub Region:</span> {details.subregion}</p>
               <p><span className='label'>Capital:</span> {details.capital}</p>

@@ -83,16 +83,16 @@ function CountryCard({id, name, flag, population, region, capital}) {
     return (
         
             <div className="country-card" id={"card-" + id}>
-                <a href={"/country/" + id.toLowerCase()} class="country-wrapper-link">
+                <a href={"/country/" + id.toLowerCase()} className="country-wrapper-link">
                     <div className='country-flag'>
                         <img alt="Flag" src={flag}/>
                     </div>
                     
                     <div className="country-summary">
                         <p className='country-name'>{name}</p>
-                        <p className='country-population'>Population: {population}</p>
-                        <p className='country-region'>Region: {region}</p>
-                        <p className='country-capital'>Capital: {capital}</p>
+                        <p className='country-population'><span className='label'>Population:</span> {population.toLocaleString('en-EN')}</p>
+                        <p className='country-region'><span className='label'>Region:</span> {region}</p>
+                        <p className='country-capital'><span className='label'>Capital:</span> {capital}</p>
                     </div>
                 </a>
             </div>
