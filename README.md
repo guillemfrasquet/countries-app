@@ -34,7 +34,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- [Next.js](https://nextjs.org/) - React framework
+- [React](https://reactjs.org/) - JS library
 
 
 ## Author
