@@ -27,9 +27,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<NavBar toggleTheme={toggleTheme} theme={theme} />}>
+      <Route path="/countries-app/" element={<NavBar toggleTheme={toggleTheme} theme={theme} />}>
         <Route index element={<CountriesList />} />
-        <Route path="country/:id" element={<CountryDetails />} />
+        <Route path="/countries-app/country/:id" element={<CountryDetails />} />
       </Route>
     </Routes>
   );
