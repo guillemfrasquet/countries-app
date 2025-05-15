@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const CountriesList = () => {
         const [countries, setCountries] = useState([]);
@@ -83,7 +85,7 @@ function CountryCard({id, name, flag, population, region, capital}) {
     return (
         
             <div className="country-card" id={"card-" + id}>
-                <a href={"/country/" + id.toLowerCase()} className="country-wrapper-link">
+                <Link to={"country/" + id.toLowerCase()} className="country-wrapper-link">
                     <div className='country-flag'>
                         <img alt="Flag" src={flag}/>
                     </div>
@@ -94,7 +96,7 @@ function CountryCard({id, name, flag, population, region, capital}) {
                         <p className='country-region'><span className='label'>Region:</span> {region}</p>
                         <p className='country-capital'><span className='label'>Capital:</span> {capital}</p>
                     </div>
-                </a>
+                </Link>
             </div>
         
     )
