@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 
 const CountryDetails = () => {
   const [details, setDetails] = useState(null);
@@ -62,9 +63,9 @@ const CountryDetails = () => {
               <ul>
               {borders.map((country, i) => (
                 <li key={i}>
-                  <a href={`./${country.cca3.toLowerCase()}`} className='border-country-tag'>
+                  <Link to={`/country/${country.cca3.toLowerCase()}`} className='border-country-tag'>
                     {country.name.common}
-                  </a>
+                  </Link>
                 </li>
               ))}
               </ul>
